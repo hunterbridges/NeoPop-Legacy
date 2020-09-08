@@ -1,3 +1,35 @@
+//////////////////////////////////////////////////////////////////////////////
+README FOR NeoPop-Legacy REPO
+//////////////////////////////////////////////////////////////////////////////
+
+===================================
+NeoPop-Legacy
+===================================
+
+This is a source recovery of the original NeoPop emulator by neopop_uk.
+
+This source was recovered from
+https://web.archive.org/web/20120304230150/emuxhaven.net/~neopop/
+
+The original project has been updated to compile in Visual Studio 2019
+under Windows 10.
+
+There are some prerequisites that need to be fulfilled before this
+can compile:
+
+- Microsoft DirectX 2010 SDK installed
+    https://www.microsoft.com/en-us/download/details.aspx?id=6812
+
+- `upx` downloaded and accessible in `PATH`
+    https://upx.github.io/
+
+- The following C++ Packages installed in Visual Studio 2019:
+    - C++ ATL for latest v142 build tools
+    - C++ MFX for latest v142 build tools
+
+//////////////////////////////////////////////////////////////////////////////
+ORIGINAL README.TXT
+//////////////////////////////////////////////////////////////////////////////
 
 ===================================
 "NeoPop : Emulator as in Dreamland"
