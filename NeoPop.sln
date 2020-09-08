@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NeoPop", "NeoPop.vcxproj", "{BFD8446D-8811-4A0D-8B05-7AC57ACF10CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debugger_DEBUG|x86 = Debugger_DEBUG|x86
+		Debugger|x86 = Debugger|x86
+		Main_DEBUG|x86 = Main_DEBUG|x86
+		Main|x86 = Main|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFD8446D-8811-4A0D-8B05-7AC57ACF10CD}.Debugger_DEBUG|x86.ActiveCfg = Debugger_DEBUG|Win32
+		{BFD8446D-8811-4A0D-8B05-7AC57ACF10CD}.Debugger_DEBUG|x86.Build.0 = Debugger_DEBUG|Win32
+		{BFD8446D-8811-4A0D-8B05-7AC57ACF10CD}.Debugger|x86.ActiveCfg = Debugger|Win32
+		{BFD8446D-8811-4A0D-8B05-7AC57ACF10CD}.Debugger|x86.Build.0 = Debugger|Win32
+		{BFD8446D-8811-4A0D-8B05-7AC57ACF10CD}.Main_DEBUG|x86.ActiveCfg = Main_DEBUG|Win32
+		{BFD8446D-8811-4A0D-8B05-7AC57ACF10CD}.Main_DEBUG|x86.Build.0 = Main_DEBUG|Win32
+		{BFD8446D-8811-4A0D-8B05-7AC57ACF10CD}.Main|x86.ActiveCfg = Main|Win32
+		{BFD8446D-8811-4A0D-8B05-7AC57ACF10CD}.Main|x86.Build.0 = Main|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6CF630D9-C229-439C-A66D-4CDE97C23951}
+	EndGlobalSection
+EndGlobal

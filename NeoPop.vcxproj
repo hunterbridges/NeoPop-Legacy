@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debugger_DEBUG|Win32">
+      <Configuration>Debugger_DEBUG</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debugger|Win32">
+      <Configuration>Debugger</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Main_DEBUG|Win32">
+      <Configuration>Main_DEBUG</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Main|Win32">
+      <Configuration>Main</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BFD8446D-8811-4A0D-8B05-7AC57ACF10CD}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Main_DEBUG|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Main|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debugger|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debugger_DEBUG|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Main_DEBUG|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Main|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debugger|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debugger_DEBUG|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debugger_DEBUG|Win32'">
+    <OutDir>$(SolutionDir)</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(PlatformTarget)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>$(DXSDK_DIR)Lib\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_ATLMFC_IncludePath);$(DXSDK_DIR)Include\;$(IncludePath)</IncludePath>
+    <TargetName>NeoPopDebugger_DEBUG</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debugger|Win32'">
+    <OutDir>$(SolutionDir)</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(PlatformTarget)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>$(DXSDK_DIR)Lib\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_ATLMFC_IncludePath);$(DXSDK_DIR)Include\;$(IncludePath)</IncludePath>
+    <TargetName>NeoPopDebugger</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Main|Win32'">
+    <OutDir>$(SolutionDir)</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(PlatformTarget)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>$(DXSDK_DIR)Lib\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_ATLMFC_IncludePath);$(DXSDK_DIR)Include\;$(IncludePath)</IncludePath>
+    <TargetName>NeoPop-Win32</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Main_DEBUG|Win32'">
+    <OutDir>$(SolutionDir)</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(PlatformTarget)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>$(DXSDK_DIR)Lib\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_ATLMFC_IncludePath);$(DXSDK_DIR)Include\;$(IncludePath)</IncludePath>
+    <TargetName>NeoPop-Win32_DEBUG</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debugger_DEBUG|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>Core\;Core\TLCS-900h\;Core\Z80\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NEOPOP_DEBUG;_DEBUG;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\obj\System_Win32\Debugger_DEBUG\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\obj\System_Win32\Debugger_DEBUG\NeoPop.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\System_Win32\Debugger_DEBUG\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\System_Win32\Debugger_DEBUG\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\obj\System_Win32\Debugger_DEBUG\NeoPop.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0809</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\obj\System_Win32\Debugger_DEBUG\NeoPop.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>NeoPopDebugger_DEBUG.exe</OutputFile>
+      <AdditionalDependencies>dxguid.lib;ddraw.lib;dinput8.lib;dsound.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debugger|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>Core\;Core\TLCS-900h\;Core\Z80\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NEOPOP_DEBUG;NDEBUG;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\obj\System_Win32\Debugger\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\System_Win32\Debugger\NeoPop.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\System_Win32\Debugger\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\System_Win32\Debugger\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>upx -9 NeoPopDebugger.exe</Command>
+    </PostBuildEvent>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\obj\System_Win32\Debugger\NeoPop.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0809</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\obj\System_Win32\Debugger\NeoPop.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>NeoPopDebugger.exe</OutputFile>
+      <AdditionalDependencies>dxguid.lib;ddraw.lib;dinput8.lib;dsound.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Main|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>Core\;Core\TLCS-900h\;Core\Z80\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <AssemblerListingLocation>.\obj\System_Win32\Main\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\System_Win32\Main\NeoPop.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\System_Win32\Main\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\System_Win32\Main\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>upx -9 NeoPop-Win32.exe</Command>
+    </PostBuildEvent>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\obj\System_Win32\Main\NeoPop.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0809</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\obj\System_Win32\Main\NeoPop.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>NeoPop-Win32.exe</OutputFile>
+      <AdditionalDependencies>dxguid.lib;ddraw.lib;dinput8.lib;dsound.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Main_DEBUG|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>Core\;Core\TLCS-900h\;Core\Z80\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\obj\System_Win32\Main_DEBUG\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\obj\System_Win32\Main_DEBUG\NeoPop.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\System_Win32\Main_DEBUG\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\System_Win32\Main_DEBUG\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\obj\System_Win32\Main_DEBUG\NeoPop.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0809</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\obj\System_Win32\Main_DEBUG\NeoPop.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>NeoPop-Win32_DEBUG.exe</OutputFile>
+      <AdditionalDependencies>dxguid.lib;ddraw.lib;dinput8.lib;dsound.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\bios.c" />
+    <ClCompile Include="Core\biosHLE.c" />
+    <ClCompile Include="Core\dma.c" />
+    <ClCompile Include="Core\flash.c" />
+    <ClCompile Include="Core\gfx.c" />
+    <ClCompile Include="Core\gfx_scanline_colour.c" />
+    <ClCompile Include="Core\gfx_scanline_mono.c" />
+    <ClCompile Include="Core\interrupt.c" />
+    <ClCompile Include="Core\mem.c" />
+    <ClCompile Include="Core\neopop.c" />
+    <ClCompile Include="Core\rom.c" />
+    <ClCompile Include="Core\sound.c" />
+    <ClCompile Include="Core\state.c" />
+    <ClCompile Include="Core\TLCS-900h\TLCS900h_disassemble.c" />
+    <ClCompile Include="Core\TLCS-900h\TLCS900h_disassemble_dst.c" />
+    <ClCompile Include="Core\TLCS-900h\TLCS900h_disassemble_extra.c" />
+    <ClCompile Include="Core\TLCS-900h\TLCS900h_disassemble_reg.c" />
+    <ClCompile Include="Core\TLCS-900h\TLCS900h_disassemble_src.c" />
+    <ClCompile Include="Core\TLCS-900h\TLCS900h_interpret.c" />
+    <ClCompile Include="Core\TLCS-900h\TLCS900h_interpret_dst.c" />
+    <ClCompile Include="Core\TLCS-900h\TLCS900h_interpret_reg.c" />
+    <ClCompile Include="Core\TLCS-900h\TLCS900h_interpret_single.c" />
+    <ClCompile Include="Core\TLCS-900h\TLCS900h_interpret_src.c" />
+    <ClCompile Include="Core\TLCS-900h\TLCS900h_registers.c" />
+    <ClCompile Include="Core\z80\dasm.c" />
+    <ClCompile Include="Core\z80\Z80.c" />
+    <ClCompile Include="Core\Z80_interface.c" />
+    <ClCompile Include="System_Win32\Debugger\debug_breakpoint.c" />
+    <ClCompile Include="System_Win32\Debugger\debug_codeview.c" />
+    <ClCompile Include="System_Win32\Debugger\debug_memview.c" />
+    <ClCompile Include="System_Win32\Debugger\debug_regview.c" />
+    <ClCompile Include="System_Win32\Debugger\debug_watch.c" />
+    <ClCompile Include="System_Win32\Debugger\debug_z80regview.c" />
+    <ClCompile Include="System_Win32\Debugger\system_debug.c" />
+    <ClCompile Include="System_Win32\system_comms.c" />
+    <ClCompile Include="System_Win32\system_config.c" />
+    <ClCompile Include="System_Win32\system_graphics.c" />
+    <ClCompile Include="System_Win32\system_input.c" />
+    <ClCompile Include="System_Win32\system_input_dialog.c" />
+    <ClCompile Include="System_Win32\system_io.c" />
+    <ClCompile Include="System_Win32\system_language.c" />
+    <ClCompile Include="System_Win32\system_main.c" />
+    <ClCompile Include="System_Win32\system_rom.c" />
+    <ClCompile Include="System_Win32\system_sound.c" />
+    <ClCompile Include="System_Win32\zLIB\adler32.c" />
+    <ClCompile Include="System_Win32\zLIB\crc32.c" />
+    <ClCompile Include="System_Win32\zLIB\infblock.c" />
+    <ClCompile Include="System_Win32\zLIB\infcodes.c" />
+    <ClCompile Include="System_Win32\zLIB\inffast.c" />
+    <ClCompile Include="System_Win32\zLIB\inflate.c" />
+    <ClCompile Include="System_Win32\zLIB\inftrees.c" />
+    <ClCompile Include="System_Win32\zLIB\infutil.c" />
+    <ClCompile Include="System_Win32\zLIB\unzip.c" />
+    <ClCompile Include="System_Win32\zLIB\zutil.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\bios.h" />
+    <ClInclude Include="Core\dma.h" />
+    <ClInclude Include="Core\flash.h" />
+    <ClInclude Include="Core\gfx.h" />
+    <ClInclude Include="Core\interrupt.h" />
+    <ClInclude Include="Core\mem.h" />
+    <ClInclude Include="Core\neopop.h" />
+    <ClInclude Include="Core\sound.h" />
+    <ClInclude Include="Core\state.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_disassemble.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_interpret.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_interpret_dst.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_interpret_reg.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_interpret_single.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_interpret_src.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapB.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapCodeB0.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapCodeB1.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapCodeB2.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapCodeB3.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapCodeL0.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapCodeL1.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapCodeL2.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapCodeL3.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapCodeW0.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapCodeW1.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapCodeW2.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapCodeW3.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapL.h" />
+    <ClInclude Include="Core\TLCS-900h\TLCS900h_registers_mapW.h" />
+    <ClInclude Include="Core\z80\Codes.h" />
+    <ClInclude Include="Core\z80\CodesCB.h" />
+    <ClInclude Include="Core\z80\CodesED.h" />
+    <ClInclude Include="Core\z80\CodesXCB.h" />
+    <ClInclude Include="Core\z80\CodesXX.h" />
+    <ClInclude Include="Core\z80\Tables.h" />
+    <ClInclude Include="Core\z80\Z80.h" />
+    <ClInclude Include="Core\Z80_interface.h" />
+    <ClInclude Include="System_Win32\Debugger\system_debug.h" />
+    <ClInclude Include="System_Win32\resource.h" />
+    <ClInclude Include="System_Win32\system_comms.h" />
+    <ClInclude Include="System_Win32\system_config.h" />
+    <ClInclude Include="System_Win32\system_graphics.h" />
+    <ClInclude Include="System_Win32\system_input.h" />
+    <ClInclude Include="System_Win32\system_language.h" />
+    <ClInclude Include="System_Win32\system_main.h" />
+    <ClInclude Include="System_Win32\system_rom.h" />
+    <ClInclude Include="System_Win32\system_sound.h" />
+    <ClInclude Include="System_Win32\zLIB\infblock.h" />
+    <ClInclude Include="System_Win32\zLIB\infcodes.h" />
+    <ClInclude Include="System_Win32\zLIB\inffast.h" />
+    <ClInclude Include="System_Win32\zLIB\inffixed.h" />
+    <ClInclude Include="System_Win32\zLIB\inftrees.h" />
+    <ClInclude Include="System_Win32\zLIB\infutil.h" />
+    <ClInclude Include="System_Win32\zLIB\unzip.h" />
+    <ClInclude Include="System_Win32\zLIB\zconf.h" />
+    <ClInclude Include="System_Win32\zLIB\zlib.h" />
+    <ClInclude Include="System_Win32\zLIB\zutil.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Core\Docs\changelog.txt" />
+    <Text Include="Core\Docs\Memory Map.txt" />
+    <Text Include="Core\Docs\source-readme.txt" />
+    <Text Include="Core\Docs\todo.txt" />
+    <Text Include="License.txt" />
+    <Text Include="readme.txt" />
+    <Text Include="System_Win32\Docs\changelog.txt" />
+    <Text Include="System_Win32\docs\NeoPop DirectSound.txt" />
+    <Text Include="System_Win32\Docs\todo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="System_Win32\Go.ico" />
+    <Image Include="System_Win32\icon.ico" />
+    <Image Include="System_Win32\neopop.bmp" />
+    <Image Include="System_Win32\stop.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="System_Win32\Resource.rc">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debugger_DEBUG|Win32'">System_Win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debugger|Win32'">System_Win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Main|Win32'">System_Win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Main_DEBUG|Win32'">System_Win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="bugs.html" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
