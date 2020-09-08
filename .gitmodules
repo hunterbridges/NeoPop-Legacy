@@ -1,0 +1,3 @@
+[submodule "Submodules/beetle-ngp-libretro"]
+	path = Submodules/beetle-ngp-libretro
+	url = https://github.com/libretro/beetle-ngp-libretro.git
