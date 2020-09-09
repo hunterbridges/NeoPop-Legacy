@@ -27,6 +27,16 @@ can compile:
     - C++ ATL for latest v142 build tools
     - C++ MFX for latest v142 build tools
 
+===================================
+
+`fusion` branch goals:
+
+1. Debug the current Link Cable implementation
+2. Replace the legacy NeoPop core with the Beetle core,
+    ideally by using the source repo with no modification (So version can stay in sync easily)
+3. Replace the networking backend with something more robust
+4. Reimplement the UI in C# (?)
+
 //////////////////////////////////////////////////////////////////////////////
 ORIGINAL README.TXT
 //////////////////////////////////////////////////////////////////////////////
