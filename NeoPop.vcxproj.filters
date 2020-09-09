@@ -32,6 +32,18 @@
     <Filter Include="System_Win32\zLIB">
       <UniqueIdentifier>{0d5c7a28-c429-4552-a30f-ba9a30d51860}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Beetle NeoPop %28libretro%29">
+      <UniqueIdentifier>{aee6bc7d-32d6-47fa-956a-36c80c5d6bc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Beetle NeoPop %28libretro%29\Core">
+      <UniqueIdentifier>{6f83902c-92f3-4c71-a15d-068b7697df26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Beetle NeoPop %28libretro%29\TLCS-900h">
+      <UniqueIdentifier>{49c9f5e1-0605-4fe1-9ce2-75c547f2e087}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Beetle NeoPop %28libretro%29\z80">
+      <UniqueIdentifier>{bbb9c58f-5210-429a-80ba-63f8cf0aee64}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\bios.c">

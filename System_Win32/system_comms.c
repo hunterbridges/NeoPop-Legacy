@@ -86,9 +86,11 @@ Control
 //=============================================================================
 
 static HWND h_linkup = NULL;
-static HWND h_messages, h_port, h_remoteip, h_localip, h_connect, h_listen, h_ok;
+static HWND h_messages, h_port, h_remoteip, h_localip, h_connect, h_listen, h_ok, h_log, h_output;
 
 static int messagecount;
+
+static int logcount;
 
 static BOOL winsock_initialised = FALSE;
 static BOOL connection_established = FALSE;
@@ -145,6 +147,55 @@ static void __cdecl comms_message(char* vaMessage,...)
 	}
 }
 
+void system_comms_log(_u32 biosCommand, size_t length, _u8 *data)
+{
+	// Trim lines at top until under max lines
+	int newLineCount = 0;
+	if (biosCommand > 0) newLineCount++;
+	if (length > 0) newLineCount++;
+
+	if (newLineCount == 0)
+		return;
+
+	// Remove first lines if going over the limit
+	static const int maxLines = 128;
+	if (Edit_GetLineCount(h_output) > maxLines - newLineCount)
+	{
+		int i = Edit_LineIndex(h_output, newLineCount);
+		Edit_SetSel(h_output, 0, i);
+		Edit_ReplaceSel(h_output, "");
+	}
+
+	// Append incoming lines
+	const char *cmdStr = system_comms_get_bios_str((CommsBIOSCommand)biosCommand);
+	char buf[512] = { 0 };
+	if (biosCommand > 0)
+	{
+		sprintf(buf, "0x%08x (%s)\r\n", biosCommand, cmdStr);
+		size_t len = Edit_GetTextLength(h_output);
+		Edit_SetSel(h_output, -1, -1);
+		Edit_ReplaceSel(h_output, buf);
+	}
+
+	if (length > 0)
+	{
+		memset(buf, 0, 512);
+		strcat(buf, "    ");
+		char byteStr[4] = { 0 };
+		for (size_t i = 0; i < length; i++)
+		{
+			sprintf(byteStr, "%02X ", data[i]);
+			strcat(buf, byteStr);
+		}
+		strcat(buf, "\r\n");
+		Edit_SetSel(h_output, -1, -1);
+		Edit_ReplaceSel(h_output, buf);
+	}
+
+	Edit_SetSel(h_output, -1, -1);
+	Edit_Scroll(h_output, Edit_GetLineCount(h_output), 0);
+}
+
 static void getPort(void)
 {
 	char port_str[10];
@@ -196,11 +247,13 @@ static void comms_init(void)
 	WORD versionneeded = MAKEWORD(2,2);
 	WSADATA wsadata;
 	HOSTENT* phe;
-	char temp[255];
+	char temp[255] = { 0 };
 
 	//Clear message list.
 	ListBox_ResetContent(h_messages);
+	Edit_SetText(h_output, temp);
 	messagecount = 0;
+	logcount = 0;
 
 	//Already connected?
 	if (winsock_initialised)
@@ -879,7 +932,8 @@ void system_comms_connect_dialog(void)
 
 	h_ok = GetDlgItem(h_linkup, IDOK);
 
-	h_messages = GetDlgItem(h_linkup, IDC_MESSAGES);
+	h_messages = GetDlgItem(h_linkup, IDC_MESSAGES2);
+	h_output = GetDlgItem(h_linkup, IDC_OUTPUT);
 	h_remoteip = GetDlgItem(h_linkup, IDC_REMOTEIP_EDIT);
 	h_localip = GetDlgItem(h_linkup, IDC_LOCALIP_EDIT);
 	h_port = GetDlgItem(h_linkup, IDC_PORT_EDIT);

@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
+// Microsoft Visual C++ generated include file.
 // Used by Resource.rc
 //
 #define IDDEFAULT                       3
@@ -159,7 +159,9 @@
 #define IDC_FLASHPATH                   1161
 #define IDC_REMOTEIP_EDIT               1165
 #define IDC_MESSAGES                    1167
+#define IDC_OUTPUT                      1167
 #define IDC_PORT_EDIT                   1168
+#define IDC_MESSAGES2                   1169
 #define IDC_CONNECT_BUTTON              1173
 #define IDC_LISTEN_BUTTON               1174
 #define IDC_LOCALIP_EDIT                1179
@@ -173,10 +175,12 @@
 #define IDC_REMOTE_ADDRESS              1195
 #define IDC_LOCAL_ADDRESS               1196
 #define IDC_PORT                        1197
+#define IDC_OUTPUTLABEL                 1198
 #define IDC_CHECK_PAUSE                 1199
 #define IDC_CHECK_ONTOP                 1200
 #define IDC_ADAPTOID                    1201
 #define IDC_CHECK_STRETCHX              1202
+#define IDC_EDIT1                       1203
 #define ID_GAME_EXIT                    40001
 #define ID_HELP_ABOUTNEOPOP             40009
 #define ID_OPTIONS_CONTROLS             40026
@@ -224,9 +228,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        128
+#define _APS_NEXT_RESOURCE_VALUE        129
 #define _APS_NEXT_COMMAND_VALUE         40119
-#define _APS_NEXT_CONTROL_VALUE         1203
+#define _APS_NEXT_CONTROL_VALUE         1204
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

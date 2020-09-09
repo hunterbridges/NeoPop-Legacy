@@ -380,6 +380,12 @@ RomHeader;
 	void system_comms_write(_u8 data);
 
 
+/*! LEGACY FUSION ADD
+	Debug logging hook for comms
+	*/
+	void system_comms_log(_u32 biosCommand, size_t length, _u8 *data);
+
+
 /*! Reads as much of the file specified by 'filename' into the given, 
 	preallocated buffer. This is rom data */
 

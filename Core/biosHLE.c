@@ -401,8 +401,14 @@ void iBIOSHLE(void)
 		//?
 	case 0xFF1032: break;
 	
-		//VECT_COMINIT
+		// VECT_COMINIT
 	case 0xFF2BBD:
+		// DEFINITION: Defines  ports  necessary  for  serial  communication.
+		//             Please  use  this  call  when  serial communication is needed.
+		// INPUT VARIABLES : None
+		// OUTPUT VARIABLES : None
+		// RETURN VALUES : None
+		// CONSTANTS : None
 #ifdef NEOPOP_DEBUG
 		if (filter_comms)
 		{
@@ -413,10 +419,17 @@ void iBIOSHLE(void)
 #endif
 		// Nothing to do.
 		rCodeB(0x30) = 0;	//RA3 = COM_BUF_OK
+		system_comms_log(pc, 0, NULL);
 		break;
 	
 		//VECT_COMSENDSTART
 	case 0xFF2C0C:
+		// DEFINITION: This is the BIOS to commence transmission of data created in the internal buffer.
+		//             Please use this call once after the data is created in the buffer.
+		// INPUT VARIABLES : None
+		// OUTPUT VARIABLES : None
+		// RETURN VALUES : None
+		// CONSTANTS : None
 #ifdef NEOPOP_DEBUG
 		if (filter_comms)
 		{
@@ -426,10 +439,17 @@ void iBIOSHLE(void)
 		}
 #endif
 		// Nothing to do.
+		system_comms_log(pc, 0, NULL);
 		break;
 	
 		//VECT_COMRECIVESTART
 	case 0xFF2C44:
+		// DEFINITION: This is the BIOS to obtain permission to commence reception.
+		//             Please use this call once to allow reception.
+		// INPUT VARIABLES: None
+		// OUTPUT VARIABLES: None
+		// RETURN VALUES: None
+		// CONTSTANTS: None
 #ifdef NEOPOP_DEBUG
 		if (filter_comms)
 		{
@@ -439,10 +459,22 @@ void iBIOSHLE(void)
 		}
 #endif
 		// Nothing to do.
+		system_comms_log(pc, 0, NULL);
 		break;
 	
 		//VECT_COMCREATEDATA
 	case 0xFF2C86:
+		// DEFINITION: Creates transmission data in the internal (system) buffer.
+		//             The buffer is a 64 byte loopbuffer.
+		//             Please use this BIOS before VECT_COMSENDSTART is called.
+		// INPUT VARIABLES:
+		//             register rb3 : 1 byte transmission data
+		// OUTPUT VARIABLES: None
+		// RETURN VALUES:
+		//             register ra3 : Transmission buffer status flag
+		// CONSTANTS:
+		//             COM_BUF_OVER : Transmission buffer over
+		//             COM_BUF_OK : Transmission buffer normal
 #ifdef NEOPOP_DEBUG
 		if (filter_comms)
 		{
@@ -454,8 +486,10 @@ void iBIOSHLE(void)
 		{
 			//Write the byte
 			_u8 data = rCodeB(0x35);
+			system_comms_log(pc, 1, &data);
 			system_comms_write(data);
 		}
+
 
 		//Restore $PC after BIOS-HLE instruction
 		pc = pop32();
@@ -472,6 +506,15 @@ void iBIOSHLE(void)
 	
 		//VECT_COMGETDATA
 	case 0xFF2CB4:
+		// DEFINITION: 1 byte of data received in the internal (system) buffer is obtained.
+		// INPUT VARIABLES: None
+		// OUTPUT VARIABLES:
+		//             register rb3 : 1 byte data received
+		// RETURN VALUES:
+		//             register ra3 : Reception buffer status flag
+		// CONSTANTS:
+		//             COM_BUF_EMPTY : Reception buffer empty
+		//             COM_BUF_OK : Reception buffer normal
 #ifdef NEOPOP_DEBUG
 		if (filter_comms)
 		{
@@ -483,8 +526,10 @@ void iBIOSHLE(void)
 		{
 			_u8 data;
 
+
 			if (system_comms_read(&data))
 			{
+				system_comms_log(pc, 1, &data);
 				rCodeB(0x30) = 0;	//COM_BUF_OK
 				rCodeB(0x35) = data;
 
@@ -505,6 +550,7 @@ void iBIOSHLE(void)
 			}
 			else
 			{
+				system_comms_log(pc, 0, NULL);
 				rCodeB(0x30) = 1;	//COM_BUF_EMPTY
 			}
 		}
@@ -513,6 +559,11 @@ void iBIOSHLE(void)
 	
 		//VECT_COMONRTS
 	case 0xFF2D27:
+	    // DEFINITION: RTS signal is set to low to allow transmission from others units.
+		// INPUT VARIABLES: None
+		// OUTPUT VARIABLES: None
+		// RETURN VALUES: None
+		// CONSTANTS:None
 #ifdef NEOPOP_DEBUG
 		if (filter_comms)
 		{
@@ -522,10 +573,16 @@ void iBIOSHLE(void)
 		}
 #endif
 		ram[0xB2] = 0;
+		system_comms_log(pc, 0, NULL);
 		break;
 	
 		//VECT_COMOFFRTS
 	case 0xFF2D33: 	
+	    // DEFINITION: RTS signal is set to high to prohibit transmission from other units.
+		// INPUT VARIABLES: None
+		// OUTPUT VARIABLES: None
+		// RETURN VALUES: None
+		// CONSTANTS:None
 #ifdef NEOPOP_DEBUG
 		if (filter_comms)
 		{
@@ -535,10 +592,24 @@ void iBIOSHLE(void)
 		}
 #endif
 		ram[0xB2] = 1;
+		system_comms_log(pc, 0, NULL);
 		break;	
 	
 		//VECT_COMSENDSTATUS
 	case 0xFF2D3A:
+		// DEFINITION: Buffer  over  flag  and  data  count  in  the  internal  buffer  is  obtained.
+		//             Reserved ERROR status bits do not have set values.
+		// INPUT VARIABLES: None
+		// OUTPUT VARIABLES:None
+		// RETURN VALUES:
+		//             register rwa3 : ERROR status bits & transmission buffer count
+		// CONSTANTS:
+		//             COM_BUFOVERERROR : Buffer over flag
+		//
+		// (16-bit mask)
+		//			   bits 0 - 7 : transmission buffer count
+		//             bit 8 : transmission buffer over flag
+		//             bits 9 - 15 : reserved
 #ifdef NEOPOP_DEBUG
 		if (filter_comms)
 		{
@@ -549,10 +620,31 @@ void iBIOSHLE(void)
 #endif
 		// Nothing to do.
 		rCodeW(0x30) = 0;	//Send Buffer Count, never any pending data!
+		system_comms_log(pc, 0, NULL);
 		break;
 	
 		//VECT_COMRECIVESTATUS
 	case 0xFF2D4E:
+		// DEFINITION: Transmission errors which have occurred up till now and the data count in the buffer
+		//             is obtained.  After this BIOS is called, communication error flag is cleared.
+		//             Reserved area ERROR status bits are 0.
+		// INPUT VARIABLES: None
+		// OUTPUT VARIABLES: None
+		// RETURN VALUES:
+		//             register rwa3 : ERROR status bits & reception buffer count
+		// CONSTANTS:
+		//             COM_BUFOVERERROR : Buffer over flag
+		//             COM_FLAMEERROR : Framing error flag
+		//             COM_PARITYERROR : Parity error flag
+	    //             COM_OVERRUNERROR : Over run error flag
+		//
+		// (16-bit mask)
+		//			   bits 0 - 7 : reception buffer count
+		//             bit 8 : reception buffer over flag
+		//             bit 9 : framing error flag
+		//             bit 10 : parity error flag
+		//             bit 11 : overrun error flag
+		//             bits 12 - 15 : reserved
 #ifdef NEOPOP_DEBUG
 		if (filter_comms)
 		{
@@ -564,11 +656,24 @@ void iBIOSHLE(void)
 
 		// Receive Buffer Count
 		rCodeW(0x30) = system_comms_read(NULL);
-
+		system_comms_log(pc, 0, NULL);
 		break;
 	
-		//VECT_COMCREATEBUFDATA
+		// VECT_COMCREATEBUFDATA
 	case 0xFF2D6C:
+		// DEFINITION: Address and size of the transmission data stored in user buffer is defined and stored in
+		//             the system buffer. This is a "block transfer" version of VECT_COMCREATEDATA.
+		//             It is quicker than using a loop with VECT_COMCREATEDATA.
+		// INPUT VARIABLES:
+		//             register xhl3 : Transmission data buffer address
+		//             register rb3 : Transmission data buffer size
+		// OUTPUT VARIABLES:
+		//             register xhl3 : When the buffer works normally, points to the next data address.
+		//                           : If data has been left from previous transmission, points to the data.
+		//             register rb3 : Number of data left
+		// RETURN VALUES: None
+	    // CONSTANTS:
+	    //             COM_BUF_OK : Buffer transfer normal (no transfer left over)
 #ifdef NEOPOP_DEBUG
 		if (filter_comms)
 		{
@@ -579,10 +684,13 @@ void iBIOSHLE(void)
 #endif
 		pc = pop32();
 
+		system_comms_log(pc, 0, NULL);
 		while(rCodeB(0x35) > 0)
 		{
 			_u8 data;
 			data = loadB(rCodeL(0x3C));
+
+			system_comms_log(0, 1, &data);
 
 			//Write data from (XHL3++)
 			system_comms_write(data);
@@ -601,6 +709,18 @@ void iBIOSHLE(void)
 	
 		//VECT_COMGETBUFDATA
 	case 0xFF2D85:
+		// DEFINITION: Address and size of the reception data wanted in the user buffer is defined and
+		//             obtained from the system buffer. This is a "block transfer" version of
+		//             VECT_COMGETDATA. It is quicker than using a loop with VECT_COMGETDATA.
+		// INPUT VARIABLES:
+		//             register xhl3 : Reception data buffer address
+		//             register rb3 : Reception data buffer size
+		// OUTPUT VARIABLES:
+		//             register xhl3 : Points to the address where the next data will be stored.
+		//             register rb3 : Number of data left
+		// RETURN VALUES:None
+		// CONSTANTS:
+		//             COM_BUF_OK : Buffer obtained normally (no reception left over)
 #ifdef NEOPOP_DEBUG
 		if (filter_comms)
 		{
@@ -614,12 +734,14 @@ void iBIOSHLE(void)
 
 			pc = pop32();
 
+			system_comms_log(pc, 0, NULL);
 			while(rCodeB(0x35) > 0)
 			{
 				_u8 data;
 
 				if (system_comms_read(&data))
 				{
+					system_comms_log(0, 1, &data);
 					//Read data into (XHL3++)
 					storeB(rCodeL(0x3C), data);
 					rCodeL(0x3C)++; //Next data
